@@ -21,8 +21,8 @@ public class WebDriverFactory {
                 System.out.println("Attempting Yandex WebDriver setup...");
                 try {
 
-                    System.setProperty("webdriver.chrome.driver", AppConfig.YANDEX_DRIVER_PATH);
-                    System.out.println("Set webdriver.chrome.driver for Yandex: " + AppConfig.YANDEX_DRIVER_PATH);
+                    System.setProperty("webdriver.chrome.driver", AppConfig.getYandexDriverPath());
+                    System.out.println("Set webdriver.chrome.driver for Yandex: " + AppConfig.getYandexDriverPath());
 
                 } catch (Exception e) {
 
@@ -40,7 +40,7 @@ public class WebDriverFactory {
                 } catch (Exception e) {
                     System.err.println("Failed to instantiate ChromeDriver for Yandex: " + e.getMessage());
 
-                    System.err.println("Checked Driver Path: " + AppConfig.YANDEX_DRIVER_PATH);
+                    System.err.println("Checked Driver Path: " + AppConfig.getYandexDriverPath());
 
                     throw new RuntimeException(
                             "Could not start YandexDriver. Check driver/binary paths and compatibility.", e);
@@ -52,8 +52,8 @@ public class WebDriverFactory {
                 System.out.println("Attempting Chrome WebDriver setup...");
                 try {
 
-                    System.setProperty("webdriver.chrome.driver", AppConfig.CHROME_DRIVER_PATH);
-                    System.out.println("Set webdriver.chrome.driver for Chrome: " + AppConfig.CHROME_DRIVER_PATH);
+                    System.setProperty("webdriver.chrome.driver", AppConfig.getChromeDriverPath());
+                    System.out.println("Set webdriver.chrome.driver for Chrome: " + AppConfig.getChromeDriverPath());
 
                 } catch (Exception e) {
 
@@ -69,7 +69,7 @@ public class WebDriverFactory {
                 } catch (Exception e) {
                     System.err.println("Failed to instantiate ChromeDriver: " + e.getMessage());
 
-                    System.err.println("Checked Driver Path: " + AppConfig.CHROME_DRIVER_PATH);
+                    System.err.println("Checked Driver Path: " + AppConfig.getChromeDriverPath());
                     throw new RuntimeException("Could not start ChromeDriver. Check driver path and compatibility.", e);
                 }
                 break;
